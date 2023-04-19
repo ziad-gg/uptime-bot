@@ -12,6 +12,16 @@ client.app = new Application({
 
 client.app.setPrefix('!');
 
+client.app.setCooldown({ 
+  message: "**{Username}**, Cool down (**{counter}** left)",
+  reference: true, 
+  long: true,
+  Mdelete: "3s"
+});
+
+client.app.setData({
+ hello: "Hello"
+})
 
 client.once("ready", async (client) => {
  client.app.build();
