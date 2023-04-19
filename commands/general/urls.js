@@ -1,10 +1,10 @@
-const { Command } = require('handler.djs');
-const { EmbedBuilder } = require('discord.js');
+const { Command } = require("handler.djs");
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = new Command()
-.setName('urls')
-.setDescription("Fetch Urls From Database")
-.setExecution(Execute);
+  .setName("urls")
+  .setDescription("Get all urls by user")
+  .setExecution(Execute);
 
 async function Execute() {
   const { message, args } = this;
@@ -12,7 +12,7 @@ async function Execute() {
   const KEY = message.author.id;
   const DATA = uptime.get({ KEY });
   const embed = new EmbedBuilder()
-  .setTitle('مجموعة الروابط المضافة') 
-  .setDescription(DATA.urls.join('\n') || )
- message.reply({ embeds: [embed] });
+    .setTitle(`مجموعة الروابط المضافة (${DATA.urls.length})`)
+    .setDescription(DATA.urls.join("\n") || " ");
+  message.reply({ embeds: [embed] });
 }

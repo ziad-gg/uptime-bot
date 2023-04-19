@@ -1,33 +1,31 @@
-const { Client } = require('discord.js');
-const { Application } = require('handler.djs');
-const { UptimeBuilder } = require('uptimer-web');
-const path = require('node:path');
-
+const { Client } = require("discord.js");
+const { Application } = require("handler.djs");
+const { UptimeBuilder } = require("uptimer-web");
+const path = require("node:path");
 const client = new Client({ intents: 3276799 });
 client.app = new Application({
   client,
-  commandsPath: path.join(__dirname, './commands'),
-  validationPath: path.join(__dirname, "./validation")
-})
-
-client.app.setPrefix('!');
-
-client.app.setCooldown({ 
+  commandsPath: path.join(__dirname, "./commands"),
+  validationPath: path.join(__dirname, "./validation"),
+});
+client.app.setPrefix("!");
+client.app.setCooldown({
   message: "**{Username}**, Cool down (**{counter}** left)",
-  reference: true, 
+  reference: true,
   long: true,
-  Mdelete: "3s"
+  Mdelete: "3s",
+});
+client.app.setData({
+  uptimerApp: new UptimeBuilder({
+    TYPE: "Database",
+    TIMEOUT: 6e4,
+    SKIPPED_INVALIED_URL_ERROR: true,
+  }),
 });
 
-client.app.setData({
- hello: "Hello",
- uptimerApp: new UptimeBuilder({ TYPE: 'Database', TIMEOUT: 60000 * 2, SKIPPED_INVALIED_URL_ERROR: true })
-})
-
-
 client.once("ready", async (client) => {
- client.app.build();
- console.log("%s is Ready", client.user.tag);
+  client.app.build();
+  console.log("%s is Ready", client.user.tag);
 });
 
 client.login(process.env.token);

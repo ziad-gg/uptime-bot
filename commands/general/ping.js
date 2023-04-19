@@ -15,7 +15,7 @@ async function Execute() {
     .then((msg) => {
       msg
         .edit(
-          `Pong! Latency: ${msg.createdTimestamp - message.createdTimestamp}ms`
+          `Pong! (${msg.createdTimestamp - message.createdTimestamp}ms)`
         )
         .catch(() => {});
     })
