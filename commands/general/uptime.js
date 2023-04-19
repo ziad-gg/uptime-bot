@@ -7,16 +7,19 @@ module.exports = new Command()
 
 async function Execute() {
   const { message, args } = this;
-  
+
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
   const URL = args[0];
-  
-  
-  if (uptime.isAlready({ KEY, URL })) return message.reply('** 
-  uptime.add({ KEY, URL }).then(() => {
-    message.reply('**✅ Your bot has been successfully operated 24 hours**');
-  }).catch(() => {
-    message.reply('**❌ This link is incorrect **');
-  });
+
+  if (uptime.isAlready({ KEY, URL }))
+    return message.reply("**❌ This link is already added**");
+  uptime
+    .add({ KEY, URL })
+    .then(() => {
+      message.reply("**✅ Your bot has been successfully operated 24 hours**");
+    })
+    .catch(() => {
+      message.reply("**❌ This link is incorrect**");
+    });
 }

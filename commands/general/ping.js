@@ -8,9 +8,16 @@ module.exports = new Command()
 
 async function Execute() {
   const { message, args } = this;
-  message.reply({
+  message
+    .reply({
       content: "Pong!",
-    }).then((msg) => {
-      msg.edit(`Pong! Latency: ${msg.createdTimestamp - message.createdTimestamp}ms`).catch(() => {});
-    }).catch(() => {});
+    })
+    .then((msg) => {
+      msg
+        .edit(
+          `Pong! Latency: ${msg.createdTimestamp - message.createdTimestamp}ms`
+        )
+        .catch(() => {});
+    })
+    .catch(() => {});
 }
