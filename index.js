@@ -23,8 +23,8 @@ const uptimerApp = new UptimeBuilder({
 client.app.setData({
   uptimerApp
 });
-uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`))
-client.once("ready", async (client) => {
+uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`));
+client.once("ready", (client) => {
   client.app.build();
   console.log("%s is Ready", client.user.tag);
 });
