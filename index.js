@@ -1,6 +1,6 @@
 const { Client } = require('discord.js');
 const { Application } = require('handler.djs');
-const Web = require('uptimer-web');
+const { UptimeBuilder } = require('uptimer-web');
 const path = require('node:path');
 
 const client = new Client({ intents: 3276799 });
@@ -8,6 +8,7 @@ const client = new Client({ intents: 3276799 });
 client.app = new Application({
   client,
   commandsPath: path.join(__dirname, './commands'),
+  validationPath: path.join(__dirname, "./validation")
 })
 
 client.app.setPrefix('!');
@@ -20,8 +21,10 @@ client.app.setCooldown({
 });
 
 client.app.setData({
- hello: "Hello"
+ hello: "Hello",
+ uptimerApp: new UptimeBuilder({ TYPE: 'Database', TIMEOUT: 60000 * 2, SKIPPED_INVALIED_URL_ERROR: true })
 })
+
 
 client.once("ready", async (client) => {
  client.app.build();
