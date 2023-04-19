@@ -15,14 +15,15 @@ client.app.setCooldown({
   long: true,
   Mdelete: "3s",
 });
+const uptimerApp = new UptimeBuilder({
+  TYPE: "Database",
+  TIMEOUT: 3e4,
+  SKIPPED_INVALIED_URL_ERROR: true,
+})
 client.app.setData({
-  uptimerApp: new UptimeBuilder({
-    TYPE: "Database",
-    DATABASENAME: 'HI', 
-    TIMEOUT: 3e4,
-    SKIPPED_INVALIED_URL_ERROR: true,
-  }),
+  uptimerApp
 });
+uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`))
 client.once("ready", async (client) => {
   client.app.build();
   console.log("%s is Ready", client.user.tag);
