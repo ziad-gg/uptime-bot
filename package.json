@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
-  },
+  }, 
   "dependencies": {
     "handler.djs": "^1.2.3",
-    "uptimer-web": "^2.7.0",
+    "uptimer-web": "^3.0.0",
     "discord.js": "^14.9.0"
   },
   "engines": {

@@ -1,7 +1,7 @@
 const { Validation } = require("handler.djs");
 
 module.exports = new Validation()
-  .setCommnads(["uptime"])
+  .setCommnads(["uptime", 'delete'])
   .setExecution((message, next) => {
     const args = message.content
       .slice(message.client.app.prefix.length)

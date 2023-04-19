@@ -12,7 +12,7 @@ async function Execute() {
   const KEY = message.author.id;
   const DATA = uptime.get({ KEY });
   const embed = new EmbedBuilder()
-    .setTitle(`مجموعة الروابط المضافة (${DATA.urls.length})`)
-    .setDescription(DATA.urls.join("\n") || " ");
+    .setTitle(`مجموعة الروابط المضافة (${DATA?.urls.length || 0})`)
+    .setDescription(DATA?.urls.join("\n") || " ");
   message.reply({ embeds: [embed] });
 }

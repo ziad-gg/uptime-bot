@@ -18,11 +18,11 @@ client.app.setCooldown({
 client.app.setData({
   uptimerApp: new UptimeBuilder({
     TYPE: "Database",
-    TIMEOUT: 6e4,
+    DATABASENAME: 'HI', 
+    TIMEOUT: 3e4,
     SKIPPED_INVALIED_URL_ERROR: true,
   }),
 });
-
 client.once("ready", async (client) => {
   client.app.build();
   console.log("%s is Ready", client.user.tag);
