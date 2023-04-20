@@ -21,6 +21,7 @@ async function Execute() {
 };
 
 function getDomainLink(url) {
+  if (!/^https?:\/\//i.test(url)) url = "https://" + url;
   let domain = url.replace(/^https?:\/\//, '');
   domain = domain.split('/')[0];
   domain = domain.split('.').slice(-2).join('.');
