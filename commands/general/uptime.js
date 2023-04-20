@@ -11,7 +11,6 @@ async function Execute() {
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
   const URL = getHttpsUrl(args[0]);
-  return message.reply(URL)
 
   if (uptime.isAlready({ KEY, URL }))
     return message.reply("**❌ This link is already added**");
@@ -34,6 +33,6 @@ function getHttpsUrl(url) {
       return 'https://' + url.replace(/^www\./i, '');
     }
   } else {
-    return url;
+    return 'https://' + url;
   }
 };
