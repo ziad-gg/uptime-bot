@@ -16,7 +16,8 @@ async function Execute() {
     return message.reply("**❌ This link is already added**");
   uptime
     .add({ KEY, URL })
-    .then(() => {
+    .then((e) => {
+    console.log(e)
       message.reply("**✅ Your bot has been successfully operated 24 hours**");
     })
     .catch(() => {

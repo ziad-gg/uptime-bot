@@ -14,7 +14,7 @@ async function Execute() {
     if (!uptime.get({ KEY }).urls.length) return message.reply("**❌ I can't find links**");
     uptime.deleteAll_URLS({ KEY }).then(() => {
       message.reply(
-        "**✅ This all bots has been successfully turned off 24 hours**"
+        "**✅ All bots have been turned off 24 hours successfully**"
       );
     });
   } else {

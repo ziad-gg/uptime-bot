@@ -1,6 +1,8 @@
 const { Client } = require("discord.js");
 const { Application } = require("handler.djs");
 const { UptimeBuilder } = require("uptimer-web");
+const express = require('express');
+const app = express();
 const path = require("node:path");
 const client = new Client({ intents: 3276799 });
 client.app = new Application({
@@ -25,6 +27,7 @@ client.app.setData({
 });
 uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`));
 client.once("ready", (client) => {
+  app.listen(3000);
   client.app.build();
   console.log("%s is Ready", client.user.tag);
 });
