@@ -27,7 +27,7 @@ client.app.setData({
 });
 uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`));
 client.once("ready", (client) => {
-  app.listen(3000);
+  //app.listen(3000);
   client.app.build();
   console.log("%s is Ready", client.user.tag);
 });
