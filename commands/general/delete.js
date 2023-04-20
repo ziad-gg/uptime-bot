@@ -11,8 +11,7 @@ async function Execute() {
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
   if (args[0]?.toLowerCase() === "all") {
-    if (!uptime.get({ KEY }).urls.length)
-      return message.reply("**❌ I can't find links**");
+    if (!uptime.get({ KEY }).urls.length) return message.reply("**❌ I can't find links**");
     uptime.deleteAll_URLS({ KEY }).then(() => {
       message.reply(
         "**✅ This all bots has been successfully turned off 24 hours**"
