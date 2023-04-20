@@ -7,13 +7,16 @@
          "https://plain-catnip-angelfish.glitch.me",
          "https://plain-catnip-angelfish.glitch.me",
          "https://plain-catnip-angelfish.glitch.me",
-         "https://plain-catnip-angelfish.glitch.me"
+         "https://plain-catnip-angelfish.glitch.me",
+         "test.com",
+         "test.comm",
+         "test.commmmh"
       ]
    },
    "860865950945378325": {
       "urls": [
          "https://evening-impartial-penguin.glitch.me/",
-         "google.com"
+         "http://google.com"
       ]
    }
 }
