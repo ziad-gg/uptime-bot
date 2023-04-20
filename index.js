@@ -20,7 +20,7 @@ client.app.setCooldown({
 const uptimerApp = new UptimeBuilder({
   TYPE: "Database",
   TIMEOUT: 3e4,
-  SKIPPED_INVALIED_URL_ERROR: true,
+  SKIPPED_INVALIED_URL_ERROR: false,
 })
 client.app.setData({
   uptimerApp
