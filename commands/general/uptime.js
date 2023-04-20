@@ -22,17 +22,17 @@ async function Execute() {
     .catch(() => {
       message.reply("**❌ This link is incorrect**");
     });
-};
+}
 
 function getHttpsUrl(url) {
   const validUrlRegex = /^(ftp|http|https|ftps):\/\/[^ "]+$/;
   if (validUrlRegex.test(url)) {
-    if (url.startsWith('https://') || url.startsWith('http://')) {
-      return url.replace(/^http(s?):\/\//i, 'https://').replace(/^www\./i, '');
+    if (url.startsWith("https://") || url.startsWith("http://")) {
+      return url.replace(/^http(s?):\/\//i, "https://").replace(/^www\./i, "");
     } else {
-      return 'https://' + url.replace(/^www\./i, '');
+      return "https://" + url.replace(/^www\./i, "");
     }
   } else {
-    return 'https://' + url;
+    return "https://" + url;
   }
-};
+}

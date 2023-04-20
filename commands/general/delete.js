@@ -17,17 +17,17 @@ async function Execute() {
   uptime.deleteURL({ KEY, URL }).then(() => {
     message.reply("**✅ This bot has been successfully turned off 24 hours**");
   });
-};
+}
 
 function getHttpsUrl(url) {
   const validUrlRegex = /^(ftp|http|https|ftps):\/\/[^ "]+$/;
   if (validUrlRegex.test(url)) {
-    if (url.startsWith('https://') || url.startsWith('http://')) {
-      return url.replace(/^http(s?):\/\//i, 'https://').replace(/^www\./i, '');
+    if (url.startsWith("https://") || url.startsWith("http://")) {
+      return url.replace(/^http(s?):\/\//i, "https://").replace(/^www\./i, "");
     } else {
-      return 'https://' + url.replace(/^www\./i, '');
+      return "https://" + url.replace(/^www\./i, "");
     }
   } else {
-    return 'https://' + url;
+    return "https://" + url;
   }
-};
+}
