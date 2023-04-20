@@ -10,7 +10,8 @@ async function Execute() {
 
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
-  const URL = args[0];
+  const URL = getHttpsUrl(args[0]);
+  return message.reply(URL)
 
   if (uptime.isAlready({ KEY, URL }))
     return message.reply("**❌ This link is already added**");
@@ -22,4 +23,17 @@ async function Execute() {
     .catch(() => {
       message.reply("**❌ This link is incorrect**");
     });
-}
+};
+
+function getHttpsUrl(url) {
+  const validUrlRegex = /^(ftp|http|https|ftps):\/\/[^ "]+$/;
+  if (validUrlRegex.test(url)) {
+    if (url.startsWith('https://') || url.startsWith('http://')) {
+      return url.replace(/^http(s?):\/\//i, 'https://').replace(/^www\./i, '');
+    } else {
+      return 'https://' + url.replace(/^www\./i, '');
+    }
+  } else {
+    return url;
+  }
+};
