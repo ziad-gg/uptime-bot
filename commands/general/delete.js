@@ -10,15 +10,26 @@ async function Execute() {
 
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
-  const URL = getHttpsUrl(args[0]);
+  if (args[0]?.toLowerCase() === "all") {
+    if (!uptime.get({ KEY }).urls.length)
+      return message.reply("**❌ I can't find links**");
+    uptime.deleteAll_URLS({ KEY }).then(() => {
+      message.reply(
+        "**✅ This all bots has been successfully turned off 24 hours**"
+      );
+    });
+  } else {
+    const URL = getHttpsUrl(args[0]);
 
-  if (!uptime.isAlready({ KEY, URL }))
-    return message.reply("**❌ This link is not added**");
-  uptime.deleteURL({ KEY, URL }).then(() => {
-    message.reply("**✅ This bot has been successfully turned off 24 hours**");
-  });
+    if (!uptime.isAlready({ KEY, URL }))
+      return message.reply("**❌ This link is not added**");
+    uptime.deleteURL({ KEY, URL }).then(() => {
+      message.reply(
+        "**✅ This bot has been successfully turned off 24 hours**"
+      );
+    });
+  }
 }
-
 function getHttpsUrl(url) {
   const validUrlRegex = /^(ftp|http|https|ftps):\/\/[^ "]+$/;
   if (validUrlRegex.test(url)) {
