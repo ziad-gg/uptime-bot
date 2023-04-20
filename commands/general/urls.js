@@ -13,6 +13,6 @@ async function Execute() {
   const DATA = uptime.get({ KEY });
   const embed = new EmbedBuilder()
     .setTitle(`مجموعة الروابط المضافة (${DATA?.urls.length || 0})`)
-    .setDescription(DATA?.urls.join("\n") || " ");
+    .setDescription(DATA?.map(e => ).urls.join("\n") || " ");
   message.reply({ embeds: [embed] });
 }
