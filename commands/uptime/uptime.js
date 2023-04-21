@@ -11,18 +11,16 @@ async function Execute(message) {
 
   const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;
-  const URL = message[0];
+  const URL = getHttpsUrl(message[0]);
 
   if (uptime.isAlready({ KEY, URL }))
     return message.reply("**❌ This link is already added**");
   uptime
     .add({ KEY, URL })
     .then((e) => {
-    console.log(e)
       message.reply("**✅ Your bot has been successfully operated 24 hours**");
     })
     .catch((e) => {
-      console.log (e)
       message.reply("**❌ This link is incorrect**");
     });
 }
