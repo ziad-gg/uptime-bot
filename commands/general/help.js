@@ -8,10 +8,6 @@ module.exports = new CommandBuilder()
   .setPermissions("SendMessages")
   .setExecution(Execute);
 
-/**
- * @param {Message} message
- */
-
 async function Execute(message) {
   const embed = new EmbedBuilder().setColor("Blue");
   embed.setTitle("**Commands List**");
