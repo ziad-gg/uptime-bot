@@ -6,8 +6,7 @@ module.exports = new CommandBuilder()
   .setCooldown("5s")
   .setExecution(Execute);
 
-async function Execute() {
-  const { message } = this;
+async function Execute(message) {
   message
     .reply({
       content: "Pong!",

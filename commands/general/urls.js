@@ -8,8 +8,7 @@ module.exports = new CommandBuilder()
 
 var Counter = 0;
 
-async function Execute() {
-  const { message, args } = this;
+async function Execute(message) {
   const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;
   const DATA = uptime.get({ KEY });

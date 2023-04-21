@@ -5,8 +5,7 @@ module.exports = new CommandBuilder()
   .setDescription("Uptime your bot 24/7")
   .setExecution(Execute);
 
-async function Execute() {
-  const { message } = this;
+async function Execute(message) {
 
   const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;
