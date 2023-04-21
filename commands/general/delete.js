@@ -1,16 +1,16 @@
-const { Command } = require("handler.djs");
+const { CommandBuilder } = require("handler.djs");
 
-module.exports = new Command()
+module.exports = new CommandBuilder()
   .setName("delete")
   .setDescription("Delete your link from uptime")
   .setExecution(Execute);
 
 async function Execute() {
-  const { message, args } = this;
+  const { message } = this;
 
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
-  if (args[0]?.toLowerCase() === "all") {
+  if (message[0]?.toLowerCase() === "all") {
     if (!uptime.get({ KEY }).urls.length) return message.reply("**❌ I can't find links**");
     uptime.deleteAll_URLS({ KEY }).then(() => {
       message.reply(
@@ -18,7 +18,7 @@ async function Execute() {
       );
     });
   } else {
-    const URL = getHttpsUrl(args[0]);
+    const URL = getHttpsUrl(message[0]);
 
     if (!uptime.isAlready({ KEY, URL }))
       return message.reply("**❌ This link is not added**");

@@ -1,13 +1,13 @@
-const { Command } = require("handler.djs");
+const { CommandBuilder } = require("handler.djs");
 
-module.exports = new Command()
+module.exports = new CommandBuilder()
   .setName("ping")
   .setDescription("Ping Me")
   .setCooldown("5s")
   .setExecution(Execute);
 
 async function Execute() {
-  const { message, args } = this;
+  const { message } = this;
   message
     .reply({
       content: "Pong!",

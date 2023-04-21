@@ -1,7 +1,7 @@
-const { Command } = require("handler.djs");
+const { CommandBuilder } = require("handler.djs");
 const { EmbedBuilder } = require("discord.js");
 
-module.exports = new Command()
+module.exports = new CommandBuilder()
   .setName("urls")
   .setDescription("Get all urls by user")
   .setExecution(Execute);

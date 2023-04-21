@@ -1,16 +1,16 @@
-const { Command } = require("handler.djs");
+const { CommandBuilder } = require("handler.djs");
 
-module.exports = new Command()
+module.exports = new CommandBuilder()
   .setName("uptime")
   .setDescription("Uptime your bot 24/7")
   .setExecution(Execute);
 
 async function Execute() {
-  const { message, args } = this;
+  const { message } = this;
 
   const uptime = message.data.get("uptimerApp");
   const KEY = message.author.id;
-  const URL = args[0];
+  const URL = message[0];
 
   if (uptime.isAlready({ KEY, URL }))
     return message.reply("**❌ This link is already added**");
