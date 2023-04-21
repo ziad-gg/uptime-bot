@@ -3,10 +3,11 @@ const { CommandBuilder } = require("handler.djs");
 module.exports = new CommandBuilder()
   .setName("delete")
   .setDescription("Delete your link from uptime")
+  .setCooldown("15s")
+  .setCategory("uptime")
   .setExecution(Execute);
 
-async function Execute() {
-  const { message } = this;
+async function Execute(message) {
 
   const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;

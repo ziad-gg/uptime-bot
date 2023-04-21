@@ -3,6 +3,8 @@ const { CommandBuilder } = require("handler.djs");
 module.exports = new CommandBuilder()
   .setName("uptime")
   .setDescription("Uptime your bot 24/7")
+  .setCooldown("10s")
+  .setCategory("uptime")
   .setExecution(Execute);
 
 async function Execute(message) {

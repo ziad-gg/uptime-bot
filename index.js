@@ -5,30 +5,37 @@ const express = require('express');
 const app = express();
 const path = require("node:path");
 const client = new Client({ intents: 3276799 });
-client.app = new Application({
+
+const App = new Application({
   client,
   commandsPath: path.join(__dirname, "./commands"),
   validationPath: path.join(__dirname, "./validation"),
 });
-client.app.setPrefix("!");
-client.app.setCooldown({
+
+App.setPrefix("!");
+
+App.setCooldown({
   message: "**{Username}**, Cool down (**{counter}** left)",
   reference: true,
   long: true,
-  Mdelete: "3s",
+  Mdelete: "5s",
 });
+
 const uptimerApp = new UptimeBuilder({
   TYPE: "Database",
   TIMEOUT: 10000,
   SKIPPED_INVALIED_URL_ERROR: false,
-})
-client.app.setData({
+});
+
+App.setData({
   uptimerApp
 });
+
+client.app = App
+
 uptimerApp.startAll().then(s => console.log('[INFO]', `Uptiming: ${s ? 'Yes' : 'No, Error' }`));
 client.once("ready", (client) => {
-  //app.listen(3000);
-  client.app.build();
+  App.build();
   console.log("%s is Ready", client.user.tag);
 });
 

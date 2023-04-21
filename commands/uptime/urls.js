@@ -4,6 +4,8 @@ const { EmbedBuilder } = require("discord.js");
 module.exports = new CommandBuilder()
   .setName("urls")
   .setDescription("Get all urls by user")
+  .setCooldown("10s")
+  .setCategory("uptime")
   .setExecution(Execute);
 
 var Counter = 0;
