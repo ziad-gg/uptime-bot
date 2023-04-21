@@ -10,7 +10,7 @@ var Counter = 0;
 
 async function Execute() {
   const { message, args } = this;
-  const uptime = message.data.get("uptimerApp");
+  const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;
   const DATA = uptime.get({ KEY });
   Counter = 0;

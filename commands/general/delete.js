@@ -8,7 +8,7 @@ module.exports = new CommandBuilder()
 async function Execute() {
   const { message } = this;
 
-  const uptime = message.data.get("uptimerApp");
+  const uptime = message.getData("uptimerApp");
   const KEY = message.author.id;
   if (message[0]?.toLowerCase() === "all") {
     if (!uptime.get({ KEY }).urls.length) return message.reply("**❌ I can't find links**");
