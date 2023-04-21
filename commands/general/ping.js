@@ -4,7 +4,7 @@ module.exports = new CommandBuilder()
   .setName("ping")
   .setDescription("Ping Me")
   .setCooldown("5s")
-   .setCategoy("gener")
+  .setCategory("general")
   .setExecution(Execute);
 
 async function Execute(message) {

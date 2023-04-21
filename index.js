@@ -23,7 +23,7 @@ App.setCooldown({
 
 const uptimerApp = new UptimeBuilder({
   TYPE: "Database",
-  TIMEOUT: 10000,
+  TIMEOUT: 1000,
   SKIPPED_INVALIED_URL_ERROR: false,
 });
 

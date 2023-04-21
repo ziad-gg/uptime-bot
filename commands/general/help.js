@@ -6,13 +6,13 @@ module.exports = new CommandBuilder()
 .setDescription("get HELP")
 .setCooldown("10s")
 .setPermissions("SendMessages")
-.setExecution(main);
+.setExecution(Execute);
 
 /**
  * @param {Message} message 
 */
 
-async function main(message) {
+async function Execute(message) {
 
     const embed = new EmbedBuilder().setColor("Blue");
     embed.setTitle("**Commands List**")
