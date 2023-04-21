@@ -9,7 +9,7 @@
   "dependencies": {
     "discord.js": "^14.9.0",
     "express": "^4.18.2",
-    "handler.djs": "^1.4.5",
+    "handler.djs": "^1.5.1",
     "uptimer-web": "^3.3.0"
   },
   "engines": {
